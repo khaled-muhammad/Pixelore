@@ -106,6 +106,13 @@ function redo() {
   }
 }
 
+// Clear the art grid
+function clear() {
+  localStorage.removeItem('autoSave');
+  grid = initializeGrid();
+  refreshGrid();
+}
+
 // Save the current grid state to the undo stack
 function saveToUndoStack() {
   undoStack.push(JSON.parse(JSON.stringify(grid))); // Deep copy
@@ -167,6 +174,7 @@ function loadCurrentArt() {
 document.querySelector(".save-btn").addEventListener("click", handleSave);
 document.querySelector(".undo-btn").addEventListener("click", undo);
 document.querySelector(".redo-btn").addEventListener("click", redo);
+document.querySelector(".clear-btn").addEventListener("click", clear);
 
 // Initial Setup
 setupColorPicker();
