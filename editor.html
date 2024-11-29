@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixelore | Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+    <header>
+        <nav class="pixel-navbar">
+            <div class="nv-logo"><a href="/"><img src="imgs/logo.png" alt="Pixelore" width="80"></a></div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/editor.html" class="active">Editor</a></li>
+                <li><a href="/gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="grid-section">
+            <div class="caption-box">
+                <div class="cap-form">
+                    <input type="text" id="art-name-input" name="art-name-input" placeholder="Art Name" required>
+                    <button class="save-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+                </div>
+                <p id="art-name-err" class="error-text">Art name field can't be empty.</p>
+            </div>
+            <div class="grid">
+
+            </div>
+            <div class="bottom-controls">
+                <div class="color-picker">
+                </div>
+                <div class="action-btns">
+                    <button class="undo-btn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                    <button class="redo-btn"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/editor.js"></script>
+</body>
+</html>

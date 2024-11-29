@@ -1,0 +1,219 @@
+body {
+    color: white;
+}
+
+.title {
+    text-align: center;
+    font-size: 46px;
+    margin-bottom: 1.5em;
+}
+
+#gallery-section {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.art-box {
+    width: 10%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #ffffff64;
+    cursor: pointer;
+    position: relative;
+}
+
+.art-box .art-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.732));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    transition: all ease-in-out .4s;
+}
+
+.art-box .art-overlay .button-group {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+    gap: 10px;
+}
+
+.art-box .art-overlay .button-group .card-btn {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease-in-out .4s;
+}
+
+.art-box .art-overlay:hover {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.163), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.732));
+}
+
+.art-box .art-overlay:hover .card-btn {
+    opacity: 1;
+}
+
+.art-box .art-cap {
+    color: white;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.grid {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+/* #gallery-section {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#gallery-section .slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }
+
+    to {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+#gallery-section .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform:
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+}
+
+#gallery-section .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#gallery-section .content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+#gallery-section .content h1 {
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+
+#gallery-section .content h1::after {
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+
+#gallery-section .content .author {
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+
+#gallery-section .content h2 {
+    font-size: 3em;
+}
+
+#gallery-section .content .model {
+    background-image: url(images/model.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1023px) {
+    #gallery-section .slider {
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+
+    #gallery-section .slider .item {
+        transform:
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+    }
+
+    #gallery-section .content h1 {
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+
+    #gallery-section .content .author {
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #gallery-section .slider {
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+
+    #gallery-section .slider .item {
+        transform:
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(180px);
+    }
+
+    #gallery-section .content h1 {
+        font-size: 5em;
+    }
+} */
