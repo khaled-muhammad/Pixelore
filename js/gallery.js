@@ -50,7 +50,7 @@ function updateUI() {
     });
 
     editButton.addEventListener("click", () => {
-      window.location.replace("/editor.html?art="+art['caption'])
+      window.location.replace("editor.html?art="+art['caption'])
     })
 
     // Create the caption paragraph

@@ -139,7 +139,7 @@ function handleSave() {
     showError("You need to draw first before saving!");
   } else {
     saveArt(artName, grid);
-    window.location.replace("/gallery.html");
+    window.location.replace("gallery.html");
   }
 }
 
