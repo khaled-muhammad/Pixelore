@@ -22,13 +22,15 @@ Welcome to **Pixelore**, the ultimate web app for creating pixelated stories! Ex
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/Pixelore.git
+   git clone https://github.com/khaled-muhammad/Pixelore.git
    ```
 2. Navigate to the project directory:
    ```bash
    cd Pixelore
    ```
 3. Open the `index.html` file in your browser to start exploring.
+
+Alternatively, visit the live website here: [Pixelore](https://khaled-muhammad.github.io/Pixelore/).
 
 ## Project Structure 📁
 
@@ -55,15 +57,18 @@ Welcome to **Pixelore**, the ultimate web app for creating pixelated stories! Ex
 
 1. **Homepage**:
    - Explore the concept of Pixelore and start your journey.
+   - ![Homepage Screenshot](screenshots/home.gif)
 
 2. **Pixel Art Editor**:
    - Create artwork by clicking on grid cells to fill them with colors.
    - Use the undo/redo buttons for better control.
    - Save your masterpiece with a unique title.
+   - ![Editor Screenshot](screenshots/editor.png)
 
 3. **Gallery**:
    - View all saved artworks.
    - Edit or delete creations directly from the gallery.
+   - ![Gallery Screenshot](screenshots/gallery.png)
 
 ## Technologies Used 🖥️
 
@@ -81,6 +86,13 @@ Welcome to **Pixelore**, the ultimate web app for creating pixelated stories! Ex
 - Integrate social sharing options.
 - Support for exporting pixel art as image files.
 
+## What's Next 🚀
+
+- **Make the Site Fully Responsive**:
+  - Enhance compatibility across devices for a seamless experience on mobile, tablet, and desktop.
+- **Add More Dynamic Features**:
+  - Introduce new tools and functionalities to enrich the user experience.
+
 ## License 📝
 
 This project is licensed under the MIT License. Feel free to use, modify, and distribute!
@@ -92,5 +104,3 @@ We welcome contributions! Fork the repository, make your changes, and submit a p
 ---
 
 **Enjoy crafting your pixelated tales!**
-
----
