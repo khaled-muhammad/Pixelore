@@ -20,10 +20,9 @@ main {
     /* 10 equal columns */
     grid-template-rows: repeat(10, 1fr);
     /* 10 equal rows */
-    width: 500px;
-    /* Adjust the grid's width */
-    height: 500px;
-    /* Adjust the grid's height */
+    max-width: 500px;
+    max-height: 500px;
+    aspect-ratio: 1/1;
 }
 
 .square {
@@ -131,4 +130,110 @@ main {
 .caption-box button:hover {
     transform: scale(1.05);
     box-shadow: #ff562255 0px 8px 16px;
+}
+
+.grid {
+    width: 90vw;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1/1; /* Maintain square shape */
+}
+
+.color-picker {
+    min-width: auto;
+    width: 90vw;
+    max-width: 400px;
+    grid-template-columns: repeat(auto-fit, 25px);
+    justify-content: center;
+    padding: 8px;
+    gap: 8px;
+}
+
+.bottom-controls {
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.caption-box {
+    width: 90vw;
+    max-width: 500px;
+}
+
+.caption-box .cap-form {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.caption-box input {
+    width: 100%;
+    flex: 1;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+    .bottom-controls {
+        flex-direction: column;
+    }
+    .grid {
+        width: 80vw;
+    }
+
+    .color-picker {
+        grid-template-columns: repeat(10, 20px);
+        gap: 6px;
+    }
+
+    .color-option {
+        width: 20px;
+        height: 20px;
+    }
+
+    .action-btns {
+        flex-direction: row;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    .grid {
+        width: 95vw;
+    }
+
+    .color-picker {
+        grid-template-columns: repeat(8, 18px);
+        gap: 5px;
+    }
+
+    .color-option {
+        width: 18px;
+        height: 18px;
+    }
+
+    .caption-box button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .pixel-navbar .nav-links a {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+    .color-picker {
+        grid-template-columns: repeat(7, 16px);
+    }
+
+    .color-option {
+        width: 16px;
+        height: 16px;
+    }
+
+    .caption-box input {
+        padding: 8px 12px;
+    }
 }
