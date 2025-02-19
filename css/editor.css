@@ -2,6 +2,7 @@
    Color Variables (Light Mode)
 ========================= */
 :root {
+  --grid-size: 10; /* Default value */
   /* Square / Grid Colors */
   --square-border: #00000064; /* Transparent black border */
   --square-hover-shadow: rgba(
@@ -84,10 +85,8 @@ main {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  /* 10 equal columns */
-  grid-template-rows: repeat(10, 1fr);
-  /* 10 equal rows */
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  grid-template-rows: repeat(var(--grid-size), 1fr);
   max-width: 500px;
   max-height: 500px;
   aspect-ratio: 1/1;
@@ -233,6 +232,59 @@ main {
 .caption-box input {
   width: 100%;
   flex: 1;
+}
+
+/* ----------------------------
+   Modal Styles
+----------------------------- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--bg-color);
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content input {
+  padding: 8px;
+  width: 60px;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: var(--caption-btn-bg);
+  color: var(--caption-btn-text);
+  border: 2px solid var(--caption-btn-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.modal-content button:hover {
+  transform: scale(1.05);
+  box-shadow: var(--caption-btn-hover-shadow) 0px 8px 16px;
 }
 
 /* Large Screens Styles*/

@@ -1,15 +1,7 @@
-// Initialization
-const gridSize = 10;
-let grid = initializeGrid();
-let undoStack = [];
-let redoStack = [];
-let activeColor = "black";
-
-// DOM Elements
-const titleInput = document.querySelector("#art-name-input");
-const artNameErrP = document.querySelector("#art-name-err");
-const gridElement = document.querySelector(".grid");
-const colorPickerElement = document.querySelector(".color-picker");
+// Remove the immediate initialization of gridSize and grid.
+// Instead, declare them as let variables so they can be set later.
+let grid; // The grid will be an array of arrays representing cell colors
+let gridSize = 10; // Default value (will be updated by the modal if needed)
 
 // Colors Palette
 const colors = [
@@ -41,21 +33,35 @@ const colors = [
   "lightskyblue",
 ];
 
-// Set up default arts if none exist (for first-time visitors)
-setupDefaultArts();
+// Undo/Redo stacks and active color
+let undoStack = [];
+let redoStack = [];
+let activeColor = "black";
 
-// Initialize grid from localStorage or create a new one
+// DOM Elements
+const titleInput = document.querySelector("#art-name-input");
+const artNameErrP = document.querySelector("#art-name-err");
+const gridElement = document.querySelector(".grid");
+const colorPickerElement = document.querySelector(".color-picker");
+
+// ------------------------------------------------
+// Initialize Grid (Either from autosave or new based on gridSize)
 function initializeGrid() {
   const savedGrid = localStorage.getItem("autoSave");
-  return savedGrid
-    ? JSON.parse(savedGrid)
-    : Array.from({ length: gridSize }, () =>
-        Array(gridSize).fill("transparent")
-      );
+  if (savedGrid) {
+    return JSON.parse(savedGrid);
+  } else {
+    // Create a new grid using the (possibly updated) gridSize variable
+    return Array.from({ length: gridSize }, () =>
+      Array(gridSize).fill("transparent")
+    );
+  }
 }
 
-// Load the grid UI
+// Load the grid UI from the grid data
 function loadGrid() {
+  gridSize = Math.sqrt(grid.flat().length);
+  document.documentElement.style.setProperty('--grid-size', gridSize);
   gridElement.innerHTML = "";
   grid.forEach((row, ri) => {
     row.forEach((color, ci) => {
@@ -207,8 +213,10 @@ function loadCurrentArt() {
   Share Art as a JPG Image
 --------------------------------------------- */
 function shareArt() {
+  // Use the actual grid dimensions instead of a constant gridSize
+  const currentGridSize = grid.length;
   const cellSize = 50; // Define the pixel size of each cell in the output image
-  const canvasSize = gridSize * cellSize;
+  const canvasSize = currentGridSize * cellSize;
   const canvas = document.createElement("canvas");
   canvas.width = canvasSize;
   canvas.height = canvasSize;
@@ -219,8 +227,8 @@ function shareArt() {
   ctx.fillRect(0, 0, canvasSize, canvasSize);
 
   // Draw each grid cell onto the canvas
-  for (let r = 0; r < gridSize; r++) {
-    for (let c = 0; c < gridSize; c++) {
+  for (let r = 0; r < currentGridSize; r++) {
+    for (let c = 0; c < currentGridSize; c++) {
       // Use white if the cell is "transparent"
       let cellColor = grid[r][c] === "transparent" ? "#ffffff" : grid[r][c];
       ctx.fillStyle = cellColor;
@@ -270,13 +278,15 @@ function setupDefaultArts() {
   let arts = JSON.parse(localStorage.getItem("arts") || "[]");
   if (arts.length === 0) {
     const defaultArts = [];
+    // Use the current gridSize (if not set by the user, it will be the default 10)
     for (let i = 1; i <= 10; i++) {
       let randomGrid = [];
       for (let r = 0; r < gridSize; r++) {
         let row = [];
         for (let c = 0; c < gridSize; c++) {
           // Pick a random color from the palette
-          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          const randomColor =
+            colors[Math.floor(Math.random() * colors.length)];
           row.push(randomColor);
         }
         randomGrid.push(row);
@@ -287,6 +297,33 @@ function setupDefaultArts() {
   }
 }
 
+/* --------------------------------------------------
+  Modal Logic: Show grid size modal if no saved art exists
+----------------------------------------------------- */
+function showGridSizeModal() {
+  const modal = document.getElementById("grid-size-modal");
+  modal.style.display = "flex";
+
+  const submitButton = document.getElementById("grid-size-submit");
+  submitButton.addEventListener("click", () => {
+    const input = document.getElementById("grid-size-input");
+    const size = parseInt(input.value);
+    if (size && size > 0) {
+      gridSize = size;
+      // Initialize grid with the chosen size
+      grid = Array.from({ length: gridSize }, () =>
+        Array(gridSize).fill("transparent")
+      );
+      modal.style.display = "none";
+      loadGrid();
+      saveGridToLocalStorage();
+    } else {
+      alert("Please enter a valid grid size");
+    }
+  });
+}
+
+// --------------------------------------------------
 // Event Listeners
 document.querySelector(".save-btn").addEventListener("click", handleSave);
 document.querySelector(".undo-btn").addEventListener("click", undo);
@@ -294,7 +331,26 @@ document.querySelector(".redo-btn").addEventListener("click", redo);
 document.querySelector(".clear-btn").addEventListener("click", clear);
 document.querySelector(".share-btn").addEventListener("click", shareArt);
 
-// Initial Setup
+// Setup color picker (always needed)
 setupColorPicker();
-loadGrid();
-loadCurrentArt();
+
+// Setup default arts (if not already set)
+setupDefaultArts();
+
+// --------------------------------------------------
+// Initialization:
+// Check if an art was loaded via URL or if there's an autosave.
+// If neither exists, show the grid size modal.
+if (new URL(window.location.href).searchParams.get("art")) {
+  // If an art is specified in the URL, load it
+  grid = initializeGrid();
+  loadCurrentArt();
+  loadGrid();
+} else if (localStorage.getItem("autoSave") && !JSON.parse(localStorage.getItem("autoSave")).flat().every((cell) => cell === "transparent")) {
+  // If an autosave exists, use it
+  grid = initializeGrid();
+  loadGrid();
+} else {
+  // No saved art exists—ask the user for grid size via modal
+  showGridSizeModal();
+}
