@@ -420,3 +420,84 @@ svg path {
   pointer-events: none;
   transition: all ease-in-out 0.4s;
 }
+#bg-container {
+  background-image: url(../imgs/img-bg.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
+.blur {
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.247);
+}
+
+#bg-container li {
+  list-style-image: url(../imgs/pix-heart-optimized.png);
+  color: white;
+  text-shadow: 0 0 9px black;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 30px;
+  height: 80vh;
+}
+
+#bg-container .content h1 {
+  font-size: 70px;
+  margin: 30px 0;
+  color: var(--accent-color);
+  text-shadow: 0 0 2px black;
+}
+
+#bg-container .content p {
+  font-size: 23px;
+  margin: 25px 0;
+  text-shadow: 0 0 9px black;
+
+  color: white;
+}
+
+.cards{
+  display: flex;
+
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #183472 1px solid;
+  margin: 20px;
+  padding: 20px;
+  width:calc((100% /3));
+  box-shadow: 0 0 2px black;
+
+
+}
+.card h1 , p{
+text-align: center;
+padding: 5px 0;
+}
+.card img{
+  margin: 8px;
+  width:calc((100% /3));
+  border-radius: 5px;
+}
+#key-feat h1:first-child{
+  text-align: center;
+  padding: 15px 0;
+  font-size: 40px;
+
+}
+#key-feat{
+  background-image: url(../imgs/Landscape-blue-light-blur-mx.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white; 
+
+}
