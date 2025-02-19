@@ -11,14 +11,32 @@
 <body>
     <header>
         <nav class="pixel-navbar">
-            <div class="nv-logo"><a href="index.html"><img src="imgs/logo.png" alt="Pixelore" width="80"></a></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="editor.html" class="active">Editor</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-            </ul>
+          <div class="nv-logo">
+            <a href="#"><img src="imgs/logo.png" alt="Pixelore" width="80" /></a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="editor.html" class="active">Editor</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+          <div class="nav-right">
+            <label class="switch-retro">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="slider">
+                <span class="toggle-button"></span>
+                <span class="on">Light</span>
+                <span class="off">Dark</span>
+              </span>
+            </label>
+            <!-- Hamburger Menu (Visible on mobile/tablet) -->
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
         </nav>
-    </header>
+      </header>
     <main>
         <section id="grid-section">
             <div class="caption-box">
@@ -43,6 +61,7 @@
         </section>
     </main>
 
+    <script src="js/theme.js"></script>
     <script src="js/editor.js"></script>
 </body>
 </html>

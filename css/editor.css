@@ -1,246 +1,311 @@
+/* =========================
+   Color Variables (Light Mode)
+========================= */
+:root {
+  /* Square / Grid Colors */
+  --square-border: #00000064; /* Transparent black border */
+  --square-hover-shadow: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Box shadow on hover for editable squares */
+
+  /* Color Picker & Action Buttons Background */
+  --color-picker-bg: rgba(20, 20, 20, 0.108);
+  --action-btns-bg: rgba(20, 20, 20, 0.108);
+
+  /* Color Option Active State */
+  --color-option-active-border: #000000;
+  --color-option-active-shadow: rgba(255, 255, 255, 0.371);
+
+  /* Action Buttons & Caption Colors */
+  --action-btns-text: #ffffff;
+  --action-btns-hover: #ff5622; /* Hover text color for action buttons */
+
+  --caption-input-border: #000;
+  --caption-input-text: #000;
+
+  --caption-btn-bg: #ff5622;
+  --caption-btn-border: #ffffff;
+  --caption-btn-text: #ffffff;
+  --caption-btn-hover-shadow: #ff5622a255; /* Hover box-shadow color for caption button */
+}
+
+/* =========================
+    Color Variables (Dark Mode Overrides)
+  ========================= */
+body.dark-mode {
+  /* For grid squares, using a darker border and reversed shadow color */
+  --square-border: #ffffff64; /* Transparent white border */
+  --square-hover-shadow: rgba(255, 255, 255, 0.3);
+
+  /* Dark mode background for controls */
+  --color-picker-bg: rgba(
+    240,
+    248,
+    255,
+    0.108
+  ); /* Light, transparent background */
+  --action-btns-bg: rgba(240, 248, 255, 0.108);
+
+  /* Active state colors in dark mode */
+  --color-option-active-border: #ffffff;
+  --color-option-active-shadow: rgba(0, 0, 0, 0.371);
+
+  /* Text and button colors for dark mode */
+  --action-btns-text: #f0f0f0;
+  --action-btns-hover: #ff5622;
+
+  --caption-input-border: #f0f0f0;
+  --caption-input-text: #f0f0f0;
+
+  --caption-btn-bg: #ff5622;
+  --caption-btn-border: #f0f0f0;
+  --caption-btn-text: #f0f0f0;
+  --caption-btn-hover-shadow: #ff5622a255;
+}
+
 main {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    padding: 25px;
-  }
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 25px;
+}
 
 #grid-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    /* 10 equal columns */
-    grid-template-rows: repeat(10, 1fr);
-    /* 10 equal rows */
-    max-width: 500px;
-    max-height: 500px;
-    aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  /* 10 equal columns */
+  grid-template-rows: repeat(10, 1fr);
+  /* 10 equal rows */
+  max-width: 500px;
+  max-height: 500px;
+  aspect-ratio: 1/1;
 }
 
 .square {
-    /* Adjust to fill grid cell */
-    width: 100%;
-    height: 100%;
-    /* Optional: adds a border for visibility */
-    border: 1px solid #ffffff64;
-    transition: all ease-in-out .3s;
+  /* Adjust to fill grid cell */
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--square-border);
+  transition: all ease-in-out 0.3s;
 }
 
 .square-editable:hover {
-    transform: scale(1.09);
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px 1px;
-    border-radius: 4px;
-    cursor: pointer;
+  transform: scale(1.09);
+  box-shadow: var(--square-hover-shadow) 0px 0px 8px 1px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .bottom-controls {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .color-picker {
-    background-color: rgba(240, 248, 255, 0.108);
-    padding: 10px 15px;
-    border-radius: 12px;
-    min-width: 400px;
-    display: grid;
-    grid-template-rows: repeat(2, 25px);
-    grid-template-columns: repeat(13, 25px);
-    gap: 10px;
+  background-color: var(--color-picker-bg);
+  padding: 10px 15px;
+  border-radius: 12px;
+  min-width: 400px;
+  display: grid;
+  grid-template-rows: repeat(2, 25px);
+  grid-template-columns: repeat(13, 25px);
+  gap: 10px;
 }
 
 .color-option {
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    background-color: red;
-    cursor: pointer;
-    transition: all ease-in-out .3s;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: red;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
-.color-option[class*='active'] {
-    border: 2px solid white;
-    box-shadow: inset rgba(0, 0, 0, 0.371) 0px 0px 4px;
+.color-option[class*="active"] {
+  border: 2px solid var(--color-option-active-border);
+  box-shadow: inset var(--color-option-active-shadow) 0px 0px 4px;
 }
 
 .action-btns {
-    background-color: rgba(240, 248, 255, 0.108);
-    padding: 10px 10px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  background-color: var(--action-btns-bg);
+  padding: 10px 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .action-btns button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    transition: all ease-in-out .3s;
+  background-color: transparent;
+  border: none;
+  color: var(--action-btns-text);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
 .action-btns button:hover {
-    color: #ff5622;
+  color: var(--action-btns-hover);
 }
 
 .caption-box {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
 
 .caption-box .cap-form {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
-
-
 .caption-box input {
-    background-color: transparent;
-    border: 1px solid white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    color: white;
+  background-color: transparent;
+  border: 1px solid var(--caption-input-border);
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: var(--caption-input-text);
 }
 
 .caption-box button {
-    background-color: #ff5622;
-    width: 45px;
-    height: 45px;
-    border: 2px solid white;
-    border-radius: 100%;
-    color: white;
-    font-size: larger;
-    cursor: pointer;
-    transition: all ease-in-out .4s;
+  background-color: var(--caption-btn-bg);
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--caption-btn-border);
+  border-radius: 100%;
+  color: var(--caption-btn-text);
+  font-size: larger;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
 }
 
 .caption-box button:hover {
-    transform: scale(1.05);
-    box-shadow: #ff562255 0px 8px 16px;
+  transform: scale(1.05);
+  box-shadow: var(--caption-btn-hover-shadow) 0px 8px 16px;
 }
 
 .grid {
-    width: 90vw;
-    max-width: 500px;
-    height: auto;
-    aspect-ratio: 1/1; /* Maintain square shape */
+  width: 90vw;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1/1; /* Maintain square shape */
 }
 
 .color-picker {
-    min-width: auto;
-    width: 90vw;
-    max-width: 400px;
-    grid-template-columns: repeat(auto-fit, 25px);
-    justify-content: center;
-    padding: 8px;
-    gap: 8px;
+  min-width: auto;
+  width: 90vw;
+  max-width: 400px;
+  grid-template-columns: repeat(auto-fit, 25px);
+  justify-content: center;
+  padding: 8px;
+  gap: 8px;
 }
 
 .bottom-controls {
-    gap: 15px;
-    padding: 10px 0;
+  gap: 15px;
+  padding: 10px 0;
 }
 
 .caption-box {
-    width: 90vw;
-    max-width: 500px;
+  width: 90vw;
+  max-width: 500px;
 }
 
 .caption-box .cap-form {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .caption-box input {
-    width: 100%;
-    flex: 1;
+  width: 100%;
+  flex: 1;
 }
 
 /* Large Screens Styles*/
 @media (min-width: 768px) {
-    .color-picker {
-        max-width: 438px;
-    }
+  .color-picker {
+    max-width: 438px;
+  }
 }
 
 /* Tablet Styles */
 @media (max-width: 768px) {
-    .bottom-controls {
-        flex-direction: column;
-    }
-    .grid {
-        width: 80vw;
-    }
+  .bottom-controls {
+    flex-direction: column;
+  }
+  .grid {
+    width: 80vw;
+  }
 
-    /* .color-picker {
+  /* .color-picker {
         grid-template-columns: repeat(10, 20px);
         gap: 6px;
     } */
 
-    /* .color-option {
+  /* .color-option {
         width: 20px;
         height: 20px;
     } */
 
-    .action-btns {
-        flex-direction: row;
-    }
+  .action-btns {
+    flex-direction: row;
+  }
 }
 
 /* Mobile Styles */
 @media (max-width: 480px) {
-    .grid {
-        width: 95vw;
-    }
+  .grid {
+    width: 95vw;
+  }
 
-    /* .color-picker {
+  /* .color-picker {
         grid-template-columns: repeat(8, 18px);
         gap: 5px;
     } */
 
-    /* .color-option {
+  /* .color-option {
         width: 18px;
         height: 18px;
     } */
 
-    .caption-box button {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
+  .caption-box button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
 
-    .pixel-navbar .nav-links a {
-        padding: 6px 8px;
-        font-size: 12px;
-    }
+  .pixel-navbar .nav-links a {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
 }
 
 /* Very Small Mobile */
 @media (max-width: 360px) {
-    /* .color-picker {
+  /* .color-picker {
         grid-template-columns: repeat(7, 16px);
     } */
 
-    /* .color-option {
+  /* .color-option {
         width: 16px;
         height: 16px;
     } */
 
-    .caption-box input {
-        padding: 8px 12px;
-    }
+  .caption-box input {
+    padding: 8px 12px;
+  }
 }

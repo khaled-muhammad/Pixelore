@@ -14,14 +14,32 @@
             <div class="banner">
                 <header>
                     <nav class="pixel-navbar">
-                        <div class="nv-logo"><a href="#"><img src="imgs/logo.png" alt="Pixelore" width="80"></a></div>
-                        <ul class="nav-links">
-                            <li><a href="#" class="active">Home</a></li>
-                            <li><a href="editor.html">Editor</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                        </ul>
+                      <div class="nv-logo">
+                        <a href="#"><img src="imgs/logo.png" alt="Pixelore" width="80" /></a>
+                      </div>
+                      <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="editor.html">Editor</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                      </ul>
+                      <div class="nav-right">
+                        <label class="switch-retro">
+                          <input type="checkbox" id="theme-toggle" />
+                          <span class="slider">
+                            <span class="toggle-button"></span>
+                            <span class="on">Light</span>
+                            <span class="off">Dark</span>
+                          </span>
+                        </label>
+                        <!-- Hamburger Menu (Visible on mobile/tablet) -->
+                        <div class="hamburger">
+                          <span class="bar"></span>
+                          <span class="bar"></span>
+                          <span class="bar"></span>
+                        </div>
+                      </div>
                     </nav>
-                </header>
+                  </header>
                 <div class="content">
                     <div class="title">
                         <svg class="logo" viewBox="0 0 50 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +56,7 @@
         </section>
     </main>
 
+    <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
 </body>
 

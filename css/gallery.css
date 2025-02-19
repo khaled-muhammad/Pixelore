@@ -1,112 +1,162 @@
-body {
-    color: white;
+/* =========================
+   Color Variables & Themes
+========================= */
+
+/* Light Mode (default) */
+:root {
+  /* Title & Section */
+  --title-text-align: center;
+  --title-font-size: 46px;
+  --title-margin-bottom: 1.5em;
+
+  /* Gallery Section */
+  --gallery-gap: 15px;
+  --gallery-justify: center;
+
+  /* Art Box */
+  --art-box-border-radius: 12px;
+  --art-box-border: #ffffff64; /* White with transparency */
+
+  /* Art Overlay */
+  --art-overlay-bg: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.732)
+  );
+  --art-overlay-hover-bg: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.163),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.732)
+  );
+
+  /* Buttons & Captions */
+  --art-btn-color: #ffffff;
+  --art-cap-color: #ffffff;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --art-box-border: #00000064; /* Black with transparency */
+  --art-overlay-bg: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.9)
+  );
+  --art-overlay-hover-bg: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.163),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.9)
+  );
+  --art-btn-color: #f0f0f0;
+  --art-cap-color: #f0f0f0;
 }
 
 .title {
-    text-align: center;
-    font-size: 46px;
-    margin-bottom: 1.5em;
-}
+    text-align: var(--title-text-align);
+    font-size: var(--title-font-size);
+    margin-bottom: var(--title-margin-bottom);
+  }  
 
 #gallery-section {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: var(--gallery-gap);
+  flex-wrap: wrap;
+  justify-content: var(--gallery-justify);
 }
 
 .art-box {
-    width: 10%;
-    overflow: hidden;
-    border-radius: 12px;
-    border: 1px solid #ffffff64;
-    cursor: pointer;
-    position: relative;
+  width: 10%;
+  overflow: hidden;
+  border-radius: var(--art-box-border-radius);
+  border: 1px solid var(--art-box-border);
+  cursor: pointer;
+  position: relative;
 }
 
 .art-box .art-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.732));
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 5px;
-    transition: all ease-in-out .4s;
+  position: absolute;
+  inset: 0;
+  background: var(--art-overlay-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+  transition: all ease-in-out 0.4s;
 }
 
 .art-box .art-overlay .button-group {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: end;
-    gap: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+  gap: 10px;
 }
 
 .art-box .art-overlay .button-group .card-btn {
-    color: white;
-    background-color: transparent;
-    border: none;
-    font-size: larger;
-    cursor: pointer;
-    opacity: 0;
-    transition: all ease-in-out .4s;
+  color: var(--art-btn-color);
+  background-color: transparent;
+  border: none;
+  font-size: larger;
+  cursor: pointer;
+  opacity: 0;
+  transition: all ease-in-out 0.4s;
 }
 
 .art-box .art-overlay:hover {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.163), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.732));
+  background: var(--art-overlay-hover-bg);
 }
 
 .art-box .art-overlay:hover .card-btn {
-    opacity: 1;
+  opacity: 1;
 }
 
 .art-box .art-cap {
-    color: white;
-    text-align: center;
-    padding: 10px 5px;
-    font-size: large;
+  color: var(--art-cap-color);
+  text-align: center;
+  padding: 10px 5px;
+  font-size: large;
 }
 
 .grid {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
 }
-
 
 /* Large Screens Styles*/
 @media (min-width: 768px) {
-    .art-box {
-        width: 20%;
-    }
+  .art-box {
+    width: 20%;
+  }
 }
 
 /* Larger Screens Styles*/
 @media (min-width: 1300px) {
-    .art-box {
-        width: 10%;
-    }
+  .art-box {
+    width: 10%;
+  }
 }
 
 /* Tablet Styles */
 @media (max-width: 768px) {
-    .art-box {
-        width: 40%;
-    }
+  .art-box {
+    width: 40%;
+  }
 }
 
 /* Mobile Styles */
 @media (max-width: 480px) {
-    .art-box {
-        width: 70%;
-    }
+  .art-box {
+    width: 70%;
+  }
 }
 
 /* Very Small Mobile */
 @media (max-width: 360px) {
-    .art-box {
-        width: 80%;
-    }
+  .art-box {
+    width: 80%;
+  }
 }
 
 /* #gallery-section {
