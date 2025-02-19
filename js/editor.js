@@ -135,6 +135,7 @@ function saveArt(artName, gridData) {
   const arts = JSON.parse(localStorage.getItem("arts") || "[]");
   arts.push({ caption: artName, data: gridData });
   localStorage.setItem("arts", JSON.stringify(arts));
+  clear();
 }
 
 // Handle Save button click

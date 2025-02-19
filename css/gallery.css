@@ -64,12 +64,49 @@ body {
     color: white;
     text-align: center;
     padding: 10px 5px;
+    font-size: large;
 }
 
 .grid {
     width: 100%;
     height: auto;
     aspect-ratio: 1;
+}
+
+
+/* Large Screens Styles*/
+@media (min-width: 768px) {
+    .art-box {
+        width: 20%;
+    }
+}
+
+/* Larger Screens Styles*/
+@media (min-width: 1300px) {
+    .art-box {
+        width: 10%;
+    }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+    .art-box {
+        width: 40%;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    .art-box {
+        width: 70%;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+    .art-box {
+        width: 80%;
+    }
 }
 
 /* #gallery-section {

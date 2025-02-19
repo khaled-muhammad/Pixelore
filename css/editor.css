@@ -170,6 +170,13 @@ main {
     flex: 1;
 }
 
+/* Large Screens Styles*/
+@media (min-width: 768px) {
+    .color-picker {
+        max-width: 438px;
+    }
+}
+
 /* Tablet Styles */
 @media (max-width: 768px) {
     .bottom-controls {
@@ -179,15 +186,15 @@ main {
         width: 80vw;
     }
 
-    .color-picker {
+    /* .color-picker {
         grid-template-columns: repeat(10, 20px);
         gap: 6px;
-    }
+    } */
 
-    .color-option {
+    /* .color-option {
         width: 20px;
         height: 20px;
-    }
+    } */
 
     .action-btns {
         flex-direction: row;
@@ -200,15 +207,15 @@ main {
         width: 95vw;
     }
 
-    .color-picker {
+    /* .color-picker {
         grid-template-columns: repeat(8, 18px);
         gap: 5px;
-    }
+    } */
 
-    .color-option {
+    /* .color-option {
         width: 18px;
         height: 18px;
-    }
+    } */
 
     .caption-box button {
         width: 40px;
@@ -224,14 +231,14 @@ main {
 
 /* Very Small Mobile */
 @media (max-width: 360px) {
-    .color-picker {
+    /* .color-picker {
         grid-template-columns: repeat(7, 16px);
-    }
+    } */
 
-    .color-option {
+    /* .color-option {
         width: 16px;
         height: 16px;
-    }
+    } */
 
     .caption-box input {
         padding: 8px 12px;

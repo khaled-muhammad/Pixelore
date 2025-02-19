@@ -1,4 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap');
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../fonts/Bebas_Neue/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pixelify Sans';
+    src: url('../fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tiny5';
+    src: url('../fonts/Tiny5/Tiny5-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
     margin: 0;
