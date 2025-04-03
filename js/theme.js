@@ -8,12 +8,14 @@ hamburger.addEventListener("click", () => {
 
 const themeToggle = document.getElementById("theme-toggle");
 
-// On page load, check if a theme is stored in localStorage
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-  // Apply the saved theme; if it's 'dark', check the toggle too
-  document.body.classList.toggle("dark-mode", savedTheme === "dark");
-  themeToggle.checked = savedTheme === "dark";
+// On page load, retrieve the saved theme or default to 'dark'
+const savedTheme = localStorage.getItem("theme") || "dark";
+document.body.classList.toggle("dark-mode", savedTheme === "dark");
+themeToggle.checked = savedTheme === "dark";
+
+// Save the default theme to localStorage if not already set
+if (!localStorage.getItem("theme")) {
+  localStorage.setItem("theme", savedTheme);
 }
 
 // Listen for changes on the toggle switch
